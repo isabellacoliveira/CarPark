@@ -19,12 +19,12 @@ namespace DESAFIO_1___EXIBINDO_DADOS_NO_CONSOLE
                 {
                     Console.WriteLine("===============================");
                     Console.WriteLine("===       Atendimento       ===");
-                    Console.WriteLine("===1 - Cadastrar Carro      ===");
-                    Console.WriteLine("===2 - Listar Carros        ===");
-                    Console.WriteLine("===3 - Remover Carro        ===");
-                    Console.WriteLine("===4 - Ordenar Carro       ===");
-                    Console.WriteLine("===5 - Pesquisar Carro      ===");
-                    Console.WriteLine("===6 - Sair do Sistema      ===");
+                    Console.WriteLine("=== 1 - Cadastrar Carro     ===");
+                    Console.WriteLine("=== 2 - Listar Carros       ===");
+                    Console.WriteLine("=== 3 - Remover Carro       ===");
+                    Console.WriteLine("=== 4 - Ordenar Carro       ===");
+                    Console.WriteLine("=== 5 - Pesquisar Carro     ===");
+                    Console.WriteLine("=== 6 - Sair do Sistema     ===");
                     Console.WriteLine("===============================");
                     Console.WriteLine("\n\n");
                     Console.Write("Digite a opção desejada: ");
@@ -69,13 +69,14 @@ namespace DESAFIO_1___EXIBINDO_DADOS_NO_CONSOLE
 
         private void PesquisarCarros()
         {
-            // Console.Clear();
-            // Console.WriteLine("===============================");
-            // Console.WriteLine("===    PESQUISAR CARROS     ===");
-            // Console.WriteLine("===============================");
-            // Console.WriteLine("\n");
-            // Console.Write("Deseja pesquisar por (1) NÚMERO DA PLACA ou (2) NOME DO TITULAR ou " +
-            //     " (3) MODELO DO CARRO : ");
+            Console.Clear();
+            Console.WriteLine("===============================");
+            Console.WriteLine("===    PESQUISAR CARROS     ===");
+            Console.WriteLine("===============================");
+            Console.WriteLine("\n");
+            Console.Write("Deseja pesquisar por (1) NÚMERO DA PLACA ou (2) NOME DO TITULAR ou " +
+                " (3) MODELO DO CARRO : ");
+            Console.WriteLine("\n");
             // switch (int.Parse(Console.ReadLine()))
             // {
             //     case 1:
@@ -173,14 +174,16 @@ namespace DESAFIO_1___EXIBINDO_DADOS_NO_CONSOLE
                 if (item.Placa.Equals(placa))
                 {
                     carro = item;
+                    var HoraEntrada = item.HoraEntrada;
+
+                    Console.WriteLine("Por favor digite o horário de saída: ");
+                    var HoraSaida = Console.ReadLine();
+                    carro.CalcularValorAPagar(HoraEntrada, HoraSaida);
+                    Console.WriteLine("Aqui será calculado o total a pagar ");
                 }
             }
             if (carro != null)
             {
-                Console.WriteLine("Por favor digite o horário de saída: ");
-                carro.HoraSaida = Console.ReadLine();
-                Console.WriteLine("Aqui será calculado o total a pagar ");
-
                 _carrosEstacionados.Remove(carro);
                 Console.WriteLine("... Carro removido da lista! ...");
             }

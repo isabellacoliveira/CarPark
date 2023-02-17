@@ -26,14 +26,14 @@ namespace DESAFIO_1___EXIBINDO_DADOS_NO_CONSOLE.modelos
              }
         public Carro(string placa, Cliente titular, string horaEntrada, string horaSaida, string precoAPagar) 
         {
-            this.Placa = placa;
+                this.Placa = placa;
                 this.Titular = titular;
                 this.HoraEntrada = horaEntrada;
                 this.HoraSaida = horaSaida;
                 this.PrecoAPagar = precoAPagar;
                
         }
-                public string Placa { get; set; }
+        public string Placa { get; set; }
         public Cliente Titular { get; set; }
         public string HoraEntrada { get; set; }
         public string HoraSaida { get; set; }
@@ -73,20 +73,25 @@ namespace DESAFIO_1___EXIBINDO_DADOS_NO_CONSOLE.modelos
             TotalDeCarrosEstacionados += 1;
         }
 
+        public void CalcularValorAPagar(string HoraEntrada, string HoraSaida)
+        {
+            Console.WriteLine("Cheguei no calcular valor");
+            Console.WriteLine(HoraEntrada);
+            Console.WriteLine(HoraSaida);
+        }
+
         public static int TotalDeCarrosEstacionados { get; set; }
 
         public override string ToString()
         {
 
             return $" === DADOS DO CARRO   === \n" +
-                //    $"Nome do Carro : {this.CarroModelo} \n" +
+                   $"Nome do Carro : {this.Modelo_Carro} \n" +
                    $"Placa do Carro : {this.Placa} \n" +
                    $"Nome do Titular: {this.Titular.Nome} \n" +
-                //    $"Tempo permanecido: {this.Titular.Nome} \n" +
+                   $"Tempo permanecido: {this.HoraEntrada} \n" +
                    $"CPF do Titular  : {this.Titular.Cpf} \n" +
                    $"Preco a pagar: { this.PrecoAPagar }\n\n";
-                   
-
         }
 
         public int CompareTo(Carro? other)
@@ -100,11 +105,5 @@ namespace DESAFIO_1___EXIBINDO_DADOS_NO_CONSOLE.modelos
                  return this.Titular.Cpf.CompareTo(other.Titular.Cpf);
             }
         }
-
-        public static implicit operator string(Carro v)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }
